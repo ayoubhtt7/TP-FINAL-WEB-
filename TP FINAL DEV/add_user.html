@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add User</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #6d83f2, #4fb4f8);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: backgroundAnimation 8s infinite alternate;
+        }
+
+        @keyframes backgroundAnimation {
+            0% { background: linear-gradient(135deg, #6d83f2, #4fb4f8); }
+            100% { background: linear-gradient(135deg, #4fb4f8, #6d83f2); }
+        }
+
+        .return-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 15px;
+            background-color: white;
+            color: #4a4a8a;
+            border: 2px solid #4a4a8a;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none; /* Button-like appearance */
+            transition: background-color 0.3s, color 0.3s, transform 0.2s;
+        }
+
+        .return-btn:hover {
+            background-color: #4a4a8a;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .return-btn:active {
+            transform: scale(1);
+        }
+
+        .add-user-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .add-user-container h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        form label {
+            font-weight: bold;
+            font-size: 0.9rem;
+            color: #4a4a8a;
+            text-align: left;
+        }
+
+        form input, form select {
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: box-shadow 0.3s, border-color 0.3s;
+        }
+
+        form input:focus, form select:focus {
+            border-color: #4a4a8a;
+            box-shadow: 0 0 8px rgba(76, 132, 255, 0.5);
+            outline: none;
+        }
+
+        form button {
+            padding: 12px;
+            background-color: #4a4a8a;
+            color: white;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #6d83f2;
+            transform: translateY(-5px);
+        }
+
+        form button:active {
+            transform: translateY(0);
+        }
+
+        @keyframes buttonPulse {
+            0% { box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+            50% { box-shadow: 0 0 15px rgba(76, 132, 255, 0.4); }
+            100% { box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+        }
+
+        form button {
+            animation: buttonPulse 3s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Back to Homepage Button -->
+    <a href="index.html" class="return-btn">← Back to Homepage</a>
+
+    <div class="add-user-container">
+        <h2>Add User</h2>
+        <form action="add_user.php" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <label for="role">Role:</label>
+            <select id="role" name="role" required>
+                <option value="admin">Admin</option>
+                <option value="client">Client</option>
+            </select>
+            
+            <button type="submit">Add User</button>
+        </form>
+    </div>
+</body>
+</html>

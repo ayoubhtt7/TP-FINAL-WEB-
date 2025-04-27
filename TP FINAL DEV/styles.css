@@ -1,0 +1,61 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ff5c77, #ffc371, #4fb4f8, #6d83f2);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.homepage {
+    text-align: center;
+}
+
+.homepage h1 {
+    color: white;
+    font-size: 2.5rem; /* Increased title size to complement bigger squares */
+    margin-bottom: 30px;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px; /* Larger spacing between squares */
+}
+
+.menu div {
+    width: 150px; /* Increased width for larger squares */
+    height: 150px; /* Increased height for larger squares */
+    background-color: white;
+    border-radius: 15px; /* Slightly rounder corners */
+    display: flex;
+    flex-direction: column; /* Stack icon and text vertically */
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem; /* Larger font size for text */
+    font-weight: bold;
+    color: #4fb4f8;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow for better aesthetics */
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.menu div:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    background-color: #6d83f2;
+    color: white;
+}
+
+.menu div:active {
+    transform: scale(1);
+}
+
+.menu img {
+    width: 50px; /* Increased icon size */
+    height: 50px;
+    margin-bottom: 10px; /* Space between icon and text */
+    display: block;
+}

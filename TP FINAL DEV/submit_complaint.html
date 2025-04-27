@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Complaint</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff5c77, #ffc371);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: backgroundAnimation 8s infinite alternate;
+        }
+
+        @keyframes backgroundAnimation {
+            0% { background: linear-gradient(135deg, #ff5c77, #ffc371); }
+            100% { background: linear-gradient(135deg, #ffc371, #ff5c77); }
+        }
+
+        .return-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 15px;
+            background-color: white;
+            color: #ff5c77;
+            border: 2px solid #ff5c77;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none; /* Make it look like a button */
+            transition: background-color 0.3s, color 0.3s, transform 0.2s;
+        }
+
+        .return-btn:hover {
+            background-color: #ff5c77;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .return-btn:active {
+            transform: scale(1);
+        }
+
+        .complaint-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+            animation: fadeIn 1.5s ease-in-out;
+            box-sizing: border-box;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .complaint-container h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .complaint-container p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        form label {
+            font-weight: bold;
+            font-size: 0.9rem;
+            color: #ff5c77;
+            text-align: left;
+            display: block;
+        }
+
+        form input, form textarea, form select {
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: box-shadow 0.3s, border-color 0.3s;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        form input:focus, form textarea:focus, form select:focus {
+            border-color: #ff5c77;
+            box-shadow: 0 0 8px rgba(255, 92, 119, 0.5);
+            outline: none;
+        }
+
+        form textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        form button {
+            padding: 12px;
+            background-color: #ff5c77;
+            color: white;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #ffc371;
+            transform: translateY(-5px);
+        }
+
+        form button:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Back to Homepage Button -->
+    <a href="index.html" class="return-btn">← Back to Homepage</a>
+
+    <div class="complaint-container">
+        <h2>Submit Your Complaint</h2>
+        <p>We value your feedback. Please provide the details below.</p>
+        <form action="submit_complaint.php" method="post">
+            <label for="client_name">Your Name:</label>
+            <input type="text" id="client_name" name="client_name" placeholder="Enter your name" required>
+            
+            <label for="issue_type">Issue Type:</label>
+            <select id="issue_type" name="issue_type" required>
+                <option value="" disabled selected>Select an issue type</option>
+                <option value="technical">Technical</option>
+                <option value="billing">Billing</option>
+                <option value="customer-service">Customer Service</option>
+                <option value="other">Other</option>
+            </select>
+            
+            <label for="severity">Severity:</label>
+            <select id="severity" name="severity" required>
+                <option value="" disabled selected>Select severity level</option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+            
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" placeholder="Describe your issue" required></textarea>
+            
+            <button type="submit">Submit Complaint</button>
+        </form>
+    </div>
+</body>
+</html>
